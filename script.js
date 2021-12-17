@@ -276,3 +276,36 @@ document.querySelector(".nav").addEventListener("click", function (e) {
   console.log(e.currentTarget === this);
 });
  */
+
+// Dom Traversing
+
+const h1 = document.querySelector("h1");
+
+// Going downwards: child
+console.log(h1.querySelectorAll(".highlight"));
+console.log(h1.childNodes);
+console.log(h1.children);
+h1.firstElementChild.style.color = "purple";
+h1.lastElementChild.style.color = "orangered";
+
+// Going upwards: parents
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+
+// The closest() method finds parents no matter how far up in the DOM tree (HTML) opposite of querySelector whichfinds childern no matter how deep they are in the DOM tree (HTML)
+h1.closest(".header").style.background = "var(--gradient-secondary)";
+h1.closest("h1").style.background = "var(--gradient-primary)";
+
+// Going sideways: siblings (we can only access the previous and the next one)
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
+
+console.log(h1.previousSibling);
+console.log(h1.nextSibling);
+
+console.log(h1.parentElement.children);
+
+[...h1.parentElement.children].forEach(function (el) {
+  // if the element is different or equal
+  if (el !== h1) el.style.transform = "scale(0.5";
+});
